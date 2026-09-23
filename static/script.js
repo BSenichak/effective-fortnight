@@ -4,18 +4,6 @@ let modal = document.querySelector(".modal")
 let form = document.querySelector(".modal form")
 let wrapper = document.querySelector(".wrapper")
 
-fetch("/ads").then(async (res) =>{
-    let ads = await res.json()
-    ads.forEach((ad)=> {
-        wrapper.innerHTML += `
-        <div class="ad"> 
-            <h3>${ad.title}</h3>
-            <p>${ad.desc}</p>
-        </div>
-        `
-    })
-})
-
 openButton.addEventListener("click", ()=> modal.style.display = "grid")
 closeButton.addEventListener("click", ()=> modal.style.display = "none")
 

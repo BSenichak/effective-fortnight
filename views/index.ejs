@@ -4,7 +4,18 @@
 <body>
     <%- include("header.ejs") %>
     <main>
-        <div class="wrapper"></div>
+        <div class="wrapper">
+            <% ads.forEach(ad=>{ %>
+                <div class="ad">
+                    <h3>
+                        <%= ad.title %>
+                    </h3>
+                    <p>
+                        <%= ad.desc %>
+                    </p>
+                </div>
+            <% }) %>
+        </div>
     </main>
     <%- include("modal") %>
     <button class="open">+</button>

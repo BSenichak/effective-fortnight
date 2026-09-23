@@ -11,7 +11,7 @@ app.use(express.json())
 let ads = []
 
 app.get("/", (req, res)=>{
-    res.render("index")
+    res.render("index", { ads })
 })
 
 app.post("/add", (req, res)=>{
@@ -25,6 +25,11 @@ app.get("/ads", (req, res)=> {
     res.status(200)
     res.setHeader("content-type", "application/json")
     res.json(ads)
+})
+
+app.use((req, res, next)=>{
+    res.status(404)
+    res.render("notfound")
 })
 
 app.listen(3000, ()=>console.log("server on"))
