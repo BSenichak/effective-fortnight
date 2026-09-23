@@ -6,19 +6,7 @@
     <main>
         <div class="wrapper"></div>
     </main>
-    <div class="modal">
-        <div class="innerModdal">
-            <form>
-                <button class="close">X</button>
-                <h2>Add AD</h2>
-                <label for="title">Title</label>
-                <input type="text" name="title" required>
-                <label for="desc">Description</label>
-                <textarea name="desc"></textarea>
-                <button type="submit" class="add-button">ADD</button>
-            </form>
-        </div>
-    </div>
+    <%- include("modal") %>
     <button class="open">+</button>
     <%- include("footer") %>
 </body>
