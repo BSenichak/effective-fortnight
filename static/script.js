@@ -11,12 +11,6 @@ form.addEventListener("submit", (event)=>{
     event.preventDefault()
     fetch("/add", {
         method: "POST",
-        headers: {
-            "content-type": "application/json"
-        },
-        body: JSON.stringify({
-            title: event.target["title"].value,
-            desc: event.target["desc"].value
-        })
+        body: new FormData(event.target)
     }).then(()=> location.reload())
 })

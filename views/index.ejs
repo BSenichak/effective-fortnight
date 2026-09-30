@@ -6,14 +6,15 @@
     <main>
         <div class="wrapper">
             <% ads.forEach(ad=>{ %>
-                <div class="ad">
+                <a href="/post/<%= ad.id %>" class="ad">
+                    <img src="/uploads/<%= ad.image[0] %>" alt="">
                     <h3>
                         <%= ad.title %>
                     </h3>
                     <p>
                         <%= ad.desc %>
                     </p>
-                </div>
+                </a>
             <% }) %>
         </div>
     </main>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("head") %>
+<body>
+    <%- include("header.ejs") %>
+    <main>
+        <h1><%= post.title %></h1>
+        <p><%= post.desc %></p>
+        <div class="images">
+            <% post.image.forEach(i=>{ %>
+                <img src="/uploads/<%= i %>" />
+            <% }) %>
+        </div>
+    </main>
+    <%- include("footer") %>
+</body>
+</html>

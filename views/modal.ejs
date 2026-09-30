@@ -5,6 +5,13 @@
             <h2>Add AD</h2>
             <label for="title">Title</label>
             <input type="text" name="title" required />
+
+            <input type="file" name="image" id="image" multiple required accept="image/*">
+            <label for="image" class="upload-button">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Upload
+            </label>
+
             <label for="desc">Description</label>
             <textarea name="desc"></textarea>
             <button type="submit" class="add-button">ADD</button>
