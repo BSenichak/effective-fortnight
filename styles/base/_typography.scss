@@ -1,0 +1,12 @@
+@font-face {
+    font-family: default_text;
+    src: url(BadScript-Regular.ttf);
+}
+
+@font-face {
+    font-family: title;
+    src: url(Caveat-VariableFont_wght.ttf);
+}
+
+$font: default_text, cursive;
+$title: title, cursive;

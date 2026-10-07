@@ -1,0 +1,60 @@
+.modal {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    display: grid;
+    place-items: center;
+    display: none;
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        background-color: $bg-300;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        position: relative;
+
+        input,
+        textarea,
+        .add-button,
+        .upload-button {
+            background-color: $accent-200;
+            border: none;
+            padding: 0.3rem;
+            border-radius: 0.3rem;
+            text-align: center;
+            color: $bg-100;
+        }
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: transparent;
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            color: $text-100;
+        }
+
+        #image {
+            display: none;
+        }
+    }
+}
+
+.open {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+    width: 2rem;
+
+    transition: transform .5s;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+}

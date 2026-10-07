@@ -1,0 +1,6 @@
+@mixin responsive-container($max-width: 1200px, $padding: 16px){
+    width: 100%;
+    max-width: $max-width;
+    padding-inline: $padding;
+    margin-inline: auto;
+}

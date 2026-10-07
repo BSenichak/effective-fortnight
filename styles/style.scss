@@ -1,0 +1,71 @@
+@use "./base/mixins" as mixins;
+@import "./base/colors";
+@import "./base/typography";
+@import "./base/clearDefault";
+@import "./components/modal.scss";
+
+a {
+    text-decoration: none;
+    color: $text-100;
+}
+
+body {
+    background-color: $bg-100;
+    color: $text-100;
+    font-family: $font;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: $primary-100;
+    padding: 1rem;
+    text-align: center;
+    font-family: $title;
+}
+
+footer {
+    background-color: $bg-200;
+    padding: 1rem;
+    text-align: center;
+}
+
+main {
+    flex-grow: 1;
+    padding: 1rem;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
+    @include mixins.responsive-container();
+}
+
+.ad {
+    background-color: $bg-300;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 3px 3px 3px 1px $bg-200 ;
+}
+
+.ad img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.images img {
+    display: block;
+    width: 100%;
+}
+
