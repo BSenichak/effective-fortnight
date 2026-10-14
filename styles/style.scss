@@ -16,6 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    @include mixins.niceScrollbars();
 }
 
 header {
@@ -47,7 +48,13 @@ main {
     background-color: $bg-300;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    box-shadow: 3px 3px 3px 1px $bg-200 ;
+    @include mixins.transparentShadow($x: 5px);
+    @include mixins.removeLinkStyles();
+    
+}
+
+.ad p {
+    @include mixins.ellipsisText();
 }
 
 .ad img {
@@ -62,6 +69,7 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 1rem;
+    @include mixins.responsive-container();
 }
 
 .images img {
