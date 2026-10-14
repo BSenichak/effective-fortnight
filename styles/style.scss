@@ -1,18 +1,27 @@
 @use "./base/mixins" as mixins;
-@import "./base/colors";
-@import "./base/typography";
-@import "./base/clearDefault";
-@import "./components/modal.scss";
+@use "./base/functions" as f;
+@use "./base/colors" as c;
+@use "./base/typography" as t;
+@use "./base/clearDefault" as clear;
+@use "./components/modal.scss" as modal;
+
+
+
+@debug f.calculateSpacing(3, 10);
+@warn f.pow(2, 16);
+@debug f.randomColor();
+@debug f.randomColor();
+@debug f.randomColor();
 
 a {
     text-decoration: none;
-    color: $text-100;
+    color: c.$text-100;
 }
 
 body {
-    background-color: $bg-100;
-    color: $text-100;
-    font-family: $font;
+    background-color: c.$bg-100;
+    color: c.$text-100;
+    font-family: t.$font;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -20,14 +29,14 @@ body {
 }
 
 header {
-    background-color: $primary-100;
+    background-color: c.$primary-100;
     padding: 1rem;
     text-align: center;
-    font-family: $title;
+    font-family: t.$title;
 }
 
 footer {
-    background-color: $bg-200;
+    background-color: c.$bg-200;
     padding: 1rem;
     text-align: center;
 }
@@ -45,7 +54,7 @@ main {
 }
 
 .ad {
-    background-color: $bg-300;
+    background-color: c.$bg-300;
     padding: 0.5rem;
     border-radius: 0.5rem;
     @include mixins.transparentShadow($x: 5px);

@@ -1,0 +1,29 @@
+@use "sass:math" as math;
+@use "sass:list" as list;
+
+@function calculateSpacing($base, $multiplayer){
+    $spacing: ();
+    @for $i from 1 through $multiplayer {
+        $value: $base * $i;
+        @if $value > 50 {
+            $value: 50;
+        }
+        $spacing: list.append($spacing, $value);
+    }
+    @return $spacing;
+}
+
+@function pow($number, $exponent){
+    $result: 1;
+    @for $i from 1 through $exponent {
+        $result: $result * $number;
+    }
+    @return $result;
+}
+
+@function randomColor(){
+    $r: math.random(255);
+    $g: math.random(255);
+    $b: math.random(255);
+    @return rgb($r, $g, $b);
+}
