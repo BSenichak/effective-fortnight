@@ -1,6 +1,8 @@
 const express = require("express")
 const multer = require("multer")
 const path = require("path")
+const db = require("./db")
+
 
 const app = express()
 
@@ -26,16 +28,30 @@ const upload = multer({ storage })
 let ads = []
 
 app.get("/", (req, res)=>{
-    res.render("index", { ads })
+    db.query("SELECT * FROM ads", (err, result)=>{
+        let ads = result
+        ads.forEach(ad => {
+            ad.image = JSON.parse(ad.image)
+        })
+        res.render("index", { ads })
+    })
 })
 
 app.post("/add", upload.fields([{name: "image"}]) ,(req, res)=>{
     let data = req.body
     data.image = req.files.image.map(file=>file.filename)
-    data.id = ads.length;
-    ads.push(data)
-    res.status(201)
-    res.end()
+    data.image = JSON.stringify(data.image)
+    db.query("INSERT INTO ads SET ?", data, (err)=>{
+        if(err){
+
+            res.status(500)
+            res.send("data base error")
+            return
+        }
+        res.status(201)
+        res.end()
+    })
+
 })
 
 
@@ -47,13 +63,16 @@ app.get("/ads", (req, res)=> {
 
 app.use("/post/:id", (req, res)=>{
     let postId = req.params.id
-    let post = ads.find(ad => ad.id == Number(postId))
-    if(!post){
-        res.status(404)
-        res.render("notfound")
-        return
-    }
-    res.render("post", { post })
+    db.query("SELECT * FROM ads WHERE id = ?", postId, (err, result)=>{
+        if(err || result.length == 0){
+            res.status(404)
+            res.render("notfound")
+            return
+        }
+        let post = result[0]
+        post.image = JSON.parse(post.image)
+        res.render("post", { post })
+    })
 })
 
 app.use((req, res, next)=>{
