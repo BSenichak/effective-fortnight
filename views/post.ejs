@@ -12,6 +12,15 @@
             <% }) %>
         </div>
     </main>
+    <%- include("CommentForm") %>
+    <ul>
+        <% comments.forEach(c=>{ %>
+            <li>
+                <h4><%= c.author %></h4>
+                <p><%= c.comment %></p>
+            </li>
+        <% }) %>
+    </ul>
     <%- include("footer") %>
 </body>
 </html>

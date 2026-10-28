@@ -1,0 +1,42 @@
+@use "../base/colors" as c;
+
+#comment-form {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    input, textarea {
+        background-color: rgba($color: #000000, $alpha: 0.5);
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5rem;
+
+        :focus {
+            outline: none;
+        }
+    }
+
+    button {
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 5rem;
+        background-color: c.$primary-100;
+        cursor: pointer;
+    }
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem;
+
+    li {
+        border-bottom: 1px solid c.$primary-100;
+        padding: 0 0.5rem;
+        list-style: none;
+    }
+}

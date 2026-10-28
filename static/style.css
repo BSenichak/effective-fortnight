@@ -119,6 +119,43 @@ select {
   transform: scale(1.1);
 }
 
+#comment-form {
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#comment-form input, #comment-form textarea {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+}
+#comment-form input :focus, #comment-form textarea :focus {
+  outline: none;
+}
+#comment-form button {
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+  background-color: #1F3A5F;
+  cursor: pointer;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+ul li {
+  border-bottom: 1px solid #1F3A5F;
+  padding: 0 0.5rem;
+  list-style: none;
+}
+
 a {
   text-decoration: none;
   color: #FFFFFF;

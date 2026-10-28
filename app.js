@@ -63,15 +63,31 @@ app.get("/ads", (req, res)=> {
 
 app.use("/post/:id", (req, res)=>{
     let postId = req.params.id
-    db.query("SELECT * FROM ads WHERE id = ?", postId, (err, result)=>{
+    db.query(`SELECT a.*, c.author, c.comment, c.id AS commentId
+        FROM ads AS a LEFT JOIN comments AS c
+        ON a.id = c.ads_id
+        WHERE a.id = ?`, postId, (err, result)=>{
         if(err || result.length == 0){
+            console.log(err.message)
             res.status(404)
             res.render("notfound")
             return
         }
         let post = result[0]
         post.image = JSON.parse(post.image)
-        res.render("post", { post })
+        res.render("post", { post, comments: result })
+    })
+})
+
+app.post("/comment", (req, res)=>{
+    let data = req.body;
+    db.query("INSERT INTO comments SET ?", data, (err, result)=>{
+        if(err) {
+            console.log(err.message)
+            return res.status(500).end()
+        }
+        res.status(201)
+        res.end()
     })
 })
 

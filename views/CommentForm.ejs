@@ -1,0 +1,23 @@
+<form id="comment-form">
+    <h2>Add comment</h2>
+    <input type="text" placeholder="Input your name..." name="author">
+    <textarea name="comment" placeholder="Write your message..."></textarea>
+    <button type="submit">Add</button>
+</form>
+<script>
+    document.getElementById("comment-form").addEventListener("submit", (event)=>{
+        let body = {
+            author: event.target["author"].value,
+            comment: event.target["comment"].value,
+            ads_id: window.location.pathname.split("/").pop()
+        }
+        event.preventDefault();
+        fetch("/comment", {
+            method: "POST",
+            body: JSON.stringify(body),
+            headers: {
+                "content-type": "application/json"
+            }
+        }).then(()=>location.reload())
+    })
+</script>
